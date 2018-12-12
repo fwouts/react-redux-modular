@@ -1,18 +1,37 @@
 import { Action } from "./actions";
-import { State } from "./state";
+import { CounterState, State } from "./state";
 
 export const rootReducer = (
   state: State = {
-    counter: 0
+    myCounter: {
+      value: 0
+    },
+    theirCounter: {
+      value: 0
+    }
   },
   action: Action
 ): State => {
   switch (action.type) {
     case "INCREASE_COUNTER":
-      return {
-        counter: state.counter + 1
-      };
-    default:
-      return state;
+      switch (action.counterType) {
+        case "mine":
+          return {
+            ...state,
+            myCounter: increaseCounter(state.myCounter)
+          };
+        case "theirs":
+          return {
+            ...state,
+            theirCounter: increaseCounter(state.theirCounter)
+          };
+      }
   }
+  return state;
 };
+
+function increaseCounter(counterState: CounterState): CounterState {
+  return {
+    value: counterState.value + 1
+  };
+}
