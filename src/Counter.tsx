@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { Dispatch, increaseCounter } from "./store/actions";
-import { CounterState, CounterType, State } from "./store/state";
+import { CounterState, State } from "./store/state";
 
 class Counter extends React.Component<{
   currentValue: number;
@@ -14,10 +14,8 @@ class Counter extends React.Component<{
   }
 }
 
-const mapStateToProps = (state: State, props: { counterType: CounterType }) =>
-  scopedStateToProps(
-    props.counterType === "mine" ? state.myCounter : state.theirCounter
-  );
+const mapStateToProps = (state: State, props: { counterId: string }) =>
+  scopedStateToProps(state.counters[props.counterId]);
 
 function scopedStateToProps(counterState: CounterState) {
   return {
@@ -27,9 +25,9 @@ function scopedStateToProps(counterState: CounterState) {
 
 const mapDispatchToProps = (
   dispatch: Dispatch,
-  props: { counterType: CounterType }
+  props: { counterId: string }
 ) => ({
-  increaseCounter: () => dispatch(increaseCounter(props.counterType))
+  increaseCounter: () => dispatch(increaseCounter(props.counterId))
 });
 
 export default connect(

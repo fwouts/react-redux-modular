@@ -12,8 +12,8 @@ class App extends React.Component<{}> {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <Counter counterType={"mine"} />
-          <Counter counterType={"theirs"} />
+          <Counter counterId={"mine"} />
+          <Counter counterId={"theirs"} />
         </header>
         <p className="App-intro">
           To get started, edit <code>src/App.tsx</code> and save to reload.

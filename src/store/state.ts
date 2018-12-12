@@ -1,9 +1,8 @@
 export interface State {
-  readonly myCounter: CounterState;
-  readonly theirCounter: CounterState;
+  counters: {
+    readonly [key: string]: CounterState;
+  };
 }
-
-export type CounterType = "mine" | "theirs";
 
 export interface CounterState {
   readonly value: number;
