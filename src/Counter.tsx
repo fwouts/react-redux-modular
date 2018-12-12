@@ -8,7 +8,9 @@ class Counter extends React.Component<{
   increaseCounter(): void;
 }> {
   public render() {
-    return <h1 onClick={this.props.increaseCounter}>{this.props.currentValue}</h1>;
+    return (
+      <h1 onClick={this.props.increaseCounter}>{this.props.currentValue}</h1>
+    );
   }
 }
 

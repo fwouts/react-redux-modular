@@ -1,13 +1,12 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import "./App.css";
-import Counter from './Counter';
+import Counter from "./Counter";
 import logo from "./logo.svg";
 import { Dispatch } from "./store/actions";
 import { State } from "./store/state";
 
-class App extends React.Component<{
-}> {
+class App extends React.Component<{}> {
   public render() {
     return (
       <div className="App">
@@ -23,11 +22,9 @@ class App extends React.Component<{
   }
 }
 
-const mapStateToProps = (state: State) => ({
-});
+const mapStateToProps = (state: State) => ({});
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-});
+const mapDispatchToProps = (dispatch: Dispatch) => ({});
 
 export default connect(
   mapStateToProps,

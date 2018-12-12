@@ -1,4 +1,4 @@
-import { Dispatch as ReduxDispatch } from 'redux';
+import { Dispatch as ReduxDispatch } from "redux";
 
 export type Dispatch = ReduxDispatch<Action>;
 
@@ -11,5 +11,5 @@ export interface IncreaseCounterAction {
 export function increaseCounter(): IncreaseCounterAction {
   return {
     type: "INCREASE_COUNTER"
-  }
+  };
 }
