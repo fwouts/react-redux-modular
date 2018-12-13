@@ -5,12 +5,15 @@ import { CounterPath, CounterState, getCounter } from "./store/counter";
 import { State } from "./store/state";
 
 class Counter extends React.Component<{
+  label: string;
   currentValue: number;
   increaseCounter(): void;
 }> {
   public render() {
     return (
-      <h1 onClick={this.props.increaseCounter}>{this.props.currentValue}</h1>
+      <h1 onClick={this.props.increaseCounter}>
+        {this.props.label} {this.props.currentValue}
+      </h1>
     );
   }
 }

@@ -13,9 +13,18 @@ class App extends React.Component<{}> {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <Counter counterPath={topLevelCounter("mine")} />
-          <Counter counterPath={topLevelCounter("theirs")} />
-          <Counter counterPath={otherFeatureCounter()} />
+          <Counter
+            label={"Top-level (mine)"}
+            counterPath={topLevelCounter("mine")}
+          />
+          <Counter
+            label={"Top-level (theirs)"}
+            counterPath={topLevelCounter("theirs")}
+          />
+          <Counter
+            label={"Other feature"}
+            counterPath={otherFeatureCounter()}
+          />
         </header>
         <p className="App-intro">
           To get started, edit <code>src/App.tsx</code> and save to reload.
