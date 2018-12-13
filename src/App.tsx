@@ -4,6 +4,7 @@ import "./App.css";
 import Counter from "./Counter";
 import logo from "./logo.svg";
 import { Dispatch } from "./store/actions";
+import { otherFeatureCounter, topLevelCounter } from "./store/counter";
 import { State } from "./store/state";
 
 class App extends React.Component<{}> {
@@ -12,8 +13,9 @@ class App extends React.Component<{}> {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <Counter counterId={"mine"} />
-          <Counter counterId={"theirs"} />
+          <Counter counterPath={topLevelCounter("mine")} />
+          <Counter counterPath={topLevelCounter("theirs")} />
+          <Counter counterPath={otherFeatureCounter()} />
         </header>
         <p className="App-intro">
           To get started, edit <code>src/App.tsx</code> and save to reload.

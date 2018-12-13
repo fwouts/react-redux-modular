@@ -1,5 +1,6 @@
 import { Action } from "./actions";
-import { CounterState, State } from "./state";
+import { CounterState, getCounter, updateCounter } from "./counter";
+import { State } from "./state";
 
 export const rootReducer = (
   state: State = {
@@ -10,19 +11,24 @@ export const rootReducer = (
       theirs: {
         value: 0
       }
+    },
+    nested: {
+      otherFeature: {
+        counter: {
+          value: 0
+        }
+      }
     }
   },
   action: Action
 ): State => {
   switch (action.type) {
     case "INCREASE_COUNTER":
-      return {
-        ...state,
-        counters: {
-          ...state.counters,
-          [action.counterId]: increaseCounter(state.counters[action.counterId])
-        }
-      };
+      return updateCounter(
+        action.counterPath,
+        increaseCounter(getCounter(action.counterPath, state)),
+        state
+      );
   }
   return state;
 };

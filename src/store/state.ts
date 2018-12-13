@@ -1,9 +1,12 @@
+import { CounterState } from "./counter";
+
 export interface State {
   readonly counters: {
-    readonly [key: string]: CounterState;
+    readonly [counterId: string]: CounterState;
   };
-}
-
-export interface CounterState {
-  readonly value: number;
+  readonly nested: {
+    otherFeature: {
+      counter: CounterState;
+    };
+  };
 }
