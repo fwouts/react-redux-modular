@@ -2,7 +2,6 @@ import * as React from "react";
 import { connect } from "react-redux";
 import "./App.css";
 import Counter from "./Counter";
-import logo from "./logo.svg";
 import { Dispatch } from "./store/actions";
 import { myFeatureCounter, topLevelCounter } from "./store/counter";
 import { State } from "./store/state";
@@ -12,7 +11,6 @@ class App extends React.Component<{}> {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <Counter
             label={"Top-level (mine)"}
             counterPointer={topLevelCounter("mine")}

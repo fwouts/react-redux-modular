@@ -1,5 +1,7 @@
 # One approach to connect a React component to multiple Redux substores
 
+## [Live demo on CodeSandbox](https://codesandbox.io/s/23rzny36nj)
+
 Imagine for a second that you have a page, with multiple counters in it.
 
 You have the following state in Redux:
