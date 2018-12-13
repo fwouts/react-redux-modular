@@ -15,13 +15,13 @@ class App extends React.Component<{}> {
           <img src={logo} className="App-logo" alt="logo" />
           <Counter
             label={"Top-level (mine)"}
-            counterPath={topLevelCounter("mine")}
+            counterPointer={topLevelCounter("mine")}
           />
           <Counter
             label={"Top-level (theirs)"}
-            counterPath={topLevelCounter("theirs")}
+            counterPointer={topLevelCounter("theirs")}
           />
-          <Counter label={"My feature"} counterPath={myFeatureCounter()} />
+          <Counter label={"My feature"} counterPointer={myFeatureCounter()} />
         </header>
         <p className="App-intro">
           To get started, edit <code>src/App.tsx</code> and save to reload.

@@ -1,5 +1,5 @@
 import { Dispatch as ReduxDispatch } from "redux";
-import { CounterPath } from "./counter";
+import { CounterPointer } from "./counter";
 
 export type Dispatch = ReduxDispatch<Action>;
 
@@ -10,17 +10,17 @@ export type Action = IncreaseCounterAction;
  */
 export interface IncreaseCounterAction {
   type: "INCREASE_COUNTER";
-  counterPath: CounterPath;
+  counterPointer: CounterPointer;
 }
 
 /**
  * Generates an action to increase a counter.
  */
 export function increaseCounter(
-  counterPath: CounterPath
+  counterPointer: CounterPointer
 ): IncreaseCounterAction {
   return {
     type: "INCREASE_COUNTER",
-    counterPath
+    counterPointer
   };
 }

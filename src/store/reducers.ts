@@ -25,8 +25,8 @@ export const rootReducer = (
   switch (action.type) {
     case "INCREASE_COUNTER":
       return updateCounter(
-        action.counterPath,
-        increaseCounter(getCounter(action.counterPath, state)),
+        action.counterPointer,
+        increaseCounter(getCounter(action.counterPointer, state)),
         state
       );
   }

@@ -5,7 +5,7 @@ import { State } from "./state";
 /**
  * Virtual path to any of the counters described by the state.
  */
-export type CounterPath =
+export type CounterPointer =
   | {
       kind: "top-level";
       counterId: string;
@@ -15,9 +15,9 @@ export type CounterPath =
     };
 
 /**
- * Returns a {@link CounterPath} for a top-level counter from its ID.
+ * Returns a {@link CounterPointer} for a top-level counter from its ID.
  */
-export function topLevelCounter(counterId: string): CounterPath {
+export function topLevelCounter(counterId: string): CounterPointer {
   return {
     kind: "top-level",
     counterId
@@ -25,19 +25,21 @@ export function topLevelCounter(counterId: string): CounterPath {
 }
 
 /**
- * Returns a {@link CounterPath} for the counter of "my feature".
+ * Returns a {@link CounterPointer} for the counter of "my feature".
  */
-export function myFeatureCounter(): CounterPath {
+export function myFeatureCounter(): CounterPointer {
   return {
     kind: "my-feature"
   };
 }
 
 /** Generates the absolute object path to a counter in the state. */
-export function objectPathFromCounterPath(counterPath: CounterPath): string[] {
-  switch (counterPath.kind) {
+export function objectPathFromCounterPointer(
+  counterPointer: CounterPointer
+): string[] {
+  switch (counterPointer.kind) {
     case "top-level":
-      return ["counters", counterPath.counterId];
+      return ["counters", counterPointer.counterId];
     case "my-feature":
       return ["nested", "myFeature", "counter"];
     default:
@@ -49,22 +51,25 @@ export function objectPathFromCounterPath(counterPath: CounterPath): string[] {
  * Extracts a counter from a state based on its path.
  */
 export function getCounter(
-  counterPath: CounterPath,
+  counterPointer: CounterPointer,
   state: State
 ): CounterState {
-  return path<CounterState>(objectPathFromCounterPath(counterPath), state)!;
+  return path<CounterState>(
+    objectPathFromCounterPointer(counterPointer),
+    state
+  )!;
 }
 
 /**
  * Updates a counter in a state based on its path.
  */
 export function updateCounter(
-  counterPath: CounterPath,
+  counterPointer: CounterPointer,
   counter: CounterState,
   state: State
 ): State {
   return assocPath<CounterState, State>(
-    objectPathFromCounterPath(counterPath),
+    objectPathFromCounterPointer(counterPointer),
     counter,
     state
   );
