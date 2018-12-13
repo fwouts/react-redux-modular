@@ -4,7 +4,7 @@ import "./App.css";
 import Counter from "./Counter";
 import logo from "./logo.svg";
 import { Dispatch } from "./store/actions";
-import { otherFeatureCounter, topLevelCounter } from "./store/counter";
+import { myFeatureCounter, topLevelCounter } from "./store/counter";
 import { State } from "./store/state";
 
 class App extends React.Component<{}> {
@@ -21,10 +21,7 @@ class App extends React.Component<{}> {
             label={"Top-level (theirs)"}
             counterPath={topLevelCounter("theirs")}
           />
-          <Counter
-            label={"Other feature"}
-            counterPath={otherFeatureCounter()}
-          />
+          <Counter label={"My feature"} counterPath={myFeatureCounter()} />
         </header>
         <p className="App-intro">
           To get started, edit <code>src/App.tsx</code> and save to reload.

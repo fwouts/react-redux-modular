@@ -6,8 +6,8 @@ export interface State {
     readonly [counterId: string]: CounterState;
   };
   readonly nested: {
-    // We also have another independent counter for a separate feature (called "other").
-    otherFeature: {
+    // We also have another independent counter for a separate feature (called "my feature").
+    myFeature: {
       counter: CounterState;
     };
   };

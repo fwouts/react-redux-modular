@@ -11,7 +11,7 @@ export type CounterPath =
       counterId: string;
     }
   | {
-      kind: "other-feature";
+      kind: "my-feature";
     };
 
 /**
@@ -25,11 +25,11 @@ export function topLevelCounter(counterId: string): CounterPath {
 }
 
 /**
- * Returns a {@link CounterPath} for the counter of the "other" feature.
+ * Returns a {@link CounterPath} for the counter of "my feature".
  */
-export function otherFeatureCounter(): CounterPath {
+export function myFeatureCounter(): CounterPath {
   return {
-    kind: "other-feature"
+    kind: "my-feature"
   };
 }
 
@@ -38,8 +38,8 @@ export function objectPathFromCounterPath(counterPath: CounterPath): string[] {
   switch (counterPath.kind) {
     case "top-level":
       return ["counters", counterPath.counterId];
-    case "other-feature":
-      return ["nested", "otherFeature", "counter"];
+    case "my-feature":
+      return ["nested", "myFeature", "counter"];
     default:
       throw new Error();
   }

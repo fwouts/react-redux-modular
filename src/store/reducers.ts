@@ -13,7 +13,7 @@ export const rootReducer = (
       }
     },
     nested: {
-      otherFeature: {
+      myFeature: {
         counter: {
           value: 0
         }
