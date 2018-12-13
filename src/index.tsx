@@ -7,7 +7,12 @@ import "./index.css";
 import registerServiceWorker from "./registerServiceWorker";
 import { rootReducer } from "./store/reducers";
 
-const store = createStore(rootReducer);
+const devToolsExtension = (window as any).devToolsExtension;
+
+const store = createStore(
+  rootReducer,
+  devToolsExtension ? devToolsExtension() : undefined
+);
 
 ReactDOM.render(
   <Provider store={store}>
