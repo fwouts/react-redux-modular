@@ -1,5 +1,5 @@
 export interface State {
-  counters: {
+  readonly counters: {
     readonly [key: string]: CounterState;
   };
 }
