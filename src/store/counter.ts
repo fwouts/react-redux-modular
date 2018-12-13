@@ -14,6 +14,9 @@ export type CounterPath =
       kind: "other-feature";
     };
 
+/**
+ * Returns a {@link CounterPath} for a top-level counter from its ID.
+ */
 export function topLevelCounter(counterId: string): CounterPath {
   return {
     kind: "top-level",
@@ -21,6 +24,9 @@ export function topLevelCounter(counterId: string): CounterPath {
   };
 }
 
+/**
+ * Returns a {@link CounterPath} for the counter of the "other" feature.
+ */
 export function otherFeatureCounter(): CounterPath {
   return {
     kind: "other-feature"
@@ -64,6 +70,9 @@ export function updateCounter(
   );
 }
 
+/**
+ * Internal state of a counter.
+ */
 export interface CounterState {
   readonly value: number;
 }
